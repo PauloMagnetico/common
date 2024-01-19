@@ -10,7 +10,7 @@ export const errorHandler = (
     if (err instanceof CustomError) {
         return res.status(err.statusCode).send({ errors: err.serializeErrors() });
     }
-    // for errors we don't know, we want to log it for debugging
+    // for errors we don't know, we want to log it for debugging purposes
 
     console.error(err);
     res.status(400).send({
