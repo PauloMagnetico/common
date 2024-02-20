@@ -12,7 +12,7 @@ abstract class Listener<T extends Event> {
     abstract subject: T['subject'];
     abstract queueGroupName: string; // abstract: must be defined by the child class
     abstract onMessage(data: T['data'], msg: Message): void;
-    private client: Stan; //private: can't be used by the child class
+    protected client: Stan; //private: can't be used by the child class
     protected ackWait = 5 * 1000; // protected: can be used by the child class
 
     constructor(client: Stan) { 
